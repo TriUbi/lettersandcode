@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// Contenedor principal para los libros
 export const BooksWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +9,6 @@ export const BooksWrapper = styled.div`
   box-sizing: border-box;
 `;
 
-// Estilo de cada card de libro
 export const BookCard = styled.div`
   background-color: #fff;
   width: 250px;
@@ -18,20 +16,22 @@ export const BookCard = styled.div`
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  position: relative;
 
   &:hover {
     transform: translateY(-10px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
   }
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 15px;
+  position: relative;
 `;
 
-// Imagen del libro
 export const BookImage = styled.img`
   width: 100%;
   height: 150px;
@@ -39,7 +39,6 @@ export const BookImage = styled.img`
   border-radius: 8px;
 `;
 
-// Título del libro
 export const BookTitle = styled.h3`
   font-size: 1.2rem;
   font-weight: bold;
@@ -48,7 +47,6 @@ export const BookTitle = styled.h3`
   margin: 10px 0;
 `;
 
-// Autor del libro
 export const BookAuthor = styled.p`
   font-size: 1rem;
   color: #555;
@@ -56,7 +54,44 @@ export const BookAuthor = styled.p`
   text-align: center;
 `;
 
-// Botón de compra
+export const BookDetails = styled.div`
+  position: absolute;
+  width: 250px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  border-top: 1px solid #ddd;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  ${BookCard}:hover & {
+    opacity: 1;
+    visibility: visible;
+  }
+`;
+
+export const BookSynopsis = styled.p`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 10px;
+  text-align: center;
+  flex-grow: 1;
+  padding: 5px;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+`;
+
 export const BuyButton = styled.button`
   background-color: #333;
   color: #fff;
