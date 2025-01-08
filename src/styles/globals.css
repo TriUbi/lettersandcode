@@ -4,10 +4,29 @@ body,
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+main {
+  flex: 1;
+  padding-top: 80px; /* Ajusta este valor según la altura de tu header */
+  min-height: calc(100vh - 80px); /* Resta la altura del header */
+  width: 100%;
 }
 
 a {
@@ -21,9 +40,12 @@ button {
   cursor: pointer;
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
+/* Asegura que el contenido tenga un espacio mínimo desde el header */
+.content-container {
+  padding-top: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }

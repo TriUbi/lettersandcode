@@ -1,7 +1,6 @@
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 
-// Wrapper för hela AuthorPage
 export const AuthorWrapper = styled("div")({
   display: "flex",
   flexDirection: "column",
@@ -10,7 +9,6 @@ export const AuthorWrapper = styled("div")({
   width: "100%",
 });
 
-// Video Wrapper för att visa video i banner
 export const VideoBannerWrapper = styled("div")({
   position: "relative",
   width: "100%",
@@ -21,27 +19,24 @@ export const VideoBannerWrapper = styled("div")({
   justifyContent: "center",
 });
 
-// Video i svartvitt
 export const Video = styled("video")({
   width: "100%",
   height: "100%",
   objectFit: "cover",
-  filter: "grayscale(100%)", // Video i svartvitt
+  filter: "grayscale(100%)",
 });
 
-// Wrapper för knappar, placerad över videon
 export const ButtonWrapper = styled("div")({
   position: "absolute",
   display: "flex",
   flexDirection: "row",
-  marginTop: "250px", // Justera för att positionera knapparna rätt
+  marginTop: "250px",
   alignItems: "center",
   justifyContent: "center",
   width: "100%",
   gap: "20px",
 });
 
-// Stil för knappar med neoneffekt
 export const NeonButton = styled(Button)({
   backgroundColor: "#333",
   color: "#fff",

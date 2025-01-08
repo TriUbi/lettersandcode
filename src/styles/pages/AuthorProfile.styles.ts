@@ -8,6 +8,7 @@ export const ProfileWrapper = styled.div`
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
+  margin-top: 100px;
 `;
 
 export const ProfileHeader = styled.div`

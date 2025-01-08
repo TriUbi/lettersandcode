@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  SidebarWrapper,
-  SidebarMenu,
-  Overlay,
-} from "../styles/components/Sidebar.styles";
-import { Link } from "react-router-dom";
+import { SidebarWrapper, Overlay } from "../styles/components/Sidebar.styles";
 
 interface SidebarProps {
   open: boolean;
@@ -16,33 +11,20 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
     <>
       <Overlay open={open} onClick={onClose} />
       <SidebarWrapper open={open}>
-        <SidebarMenu>
+        <ul>
           <li>
-            <Link to="/" onClick={onClose}>
-              Inicio
-            </Link>
+            <a href="/">Inicio</a>
           </li>
           <li>
-            <Link to="/books" onClick={onClose}>
-              Libros
-            </Link>
+            <a href="/books">Libros</a>
           </li>
           <li>
-            <Link to="/how-it-works" onClick={onClose}>
-              Cómo Funciona
-            </Link>
+            <a href="/about-us">Sobre Nosotros</a>
           </li>
           <li>
-            <Link to="/about-us" onClick={onClose}>
-              Sobre Nosotros
-            </Link>
+            <a href="/contact">Contacto</a>
           </li>
-          <li>
-            <Link to="/contact" onClick={onClose}>
-              Contacto
-            </Link>
-          </li>
-        </SidebarMenu>
+        </ul>
       </SidebarWrapper>
     </>
   );

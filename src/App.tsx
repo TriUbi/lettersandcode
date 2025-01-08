@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import { ContentWrapper } from "./styles/components/ContentWrapper.styles"; // Importa el nuevo componente
+import { ContentWrapper } from "./styles/components/ContentWrapper.styles";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
 import HowItWorks from "./pages/HowItWorks";
