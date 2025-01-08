@@ -14,7 +14,16 @@ export default function AuthorPage() {
   return (
     <AuthorWrapper>
       <VideoBannerWrapper>
-        <Video autoPlay muted loop>
+        <Video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="banner-video"
+          disablePictureInPicture
+          controlsList="nodownload noplaybackrate"
+          controls={false}
+        >
           <source src={heroBanner} type="video/mp4" />
           Din webbläsare stöder inte videouppspelning.
         </Video>

@@ -24,6 +24,20 @@ export const Video = styled("video")({
   height: "100%",
   objectFit: "cover",
   filter: "grayscale(100%)",
+  pointerEvents: "none",
+  userSelect: "none",
+  "&::-webkit-media-controls": {
+    display: "none !important",
+  },
+  "&::-webkit-media-controls-panel": {
+    display: "none !important",
+  },
+  "&::-webkit-media-controls-play-button": {
+    display: "none !important",
+  },
+  "&::-webkit-media-controls-start-playback-button": {
+    display: "none !important",
+  },
 });
 
 export const ButtonWrapper = styled("div")({
