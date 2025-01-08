@@ -10,6 +10,7 @@ import ReaderPage from "./pages/Reader/ReaderPage";
 import AuthorPage from "./pages/Author/AuthorPage";
 import AuthorProfile from "./pages/Author/AuthorProfile";
 import ReaderProfile from "./pages/Reader/ReaderProfile";
+import Cart from "./components/Cart";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/writer" element={<AuthorPage />} />
           <Route path="/writer-profile" element={<AuthorProfile />} />
           <Route path="/reader-profile" element={<ReaderProfile />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </ContentWrapper>
     </Router>

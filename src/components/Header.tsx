@@ -1,27 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   HeaderWrapper,
   HamburgerButton,
   Title,
-  BookIcon,
+  BookIconWrapper,
+  CartCount,
 } from "../styles/components/Header.styles";
-import Sidebar from "./Sidebar";
+import { useCart } from "../context/CartContext";
+import BookIcon from "../../public/iconbook.png";
 
 const Header: React.FC = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { cartCount } = useCart();
+  const navigate = useNavigate();
 
   return (
-    <>
-      <HeaderWrapper>
-        <HamburgerButton onClick={() => setSidebarOpen(!sidebarOpen)}>
-          ☰
-        </HamburgerButton>
-        <Title>Between Letters and Code</Title>
-
-        <BookIcon src="/iconbook.png" alt="Book Icon" />
-      </HeaderWrapper>
-      <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-    </>
+    <HeaderWrapper>
+      <HamburgerButton>☰</HamburgerButton>
+      <Title>Between Letters and Code</Title>
+      <BookIconWrapper onClick={() => navigate("/cart")}>
+        <img src={BookIcon} alt="Carrito" />
+        {cartCount > 0 && <CartCount>{cartCount}</CartCount>}
+      </BookIconWrapper>
+    </HeaderWrapper>
   );
 };
 

@@ -8,6 +8,7 @@ import {
   BookDetails,
   BookSynopsis,
 } from "../styles/pages/Books.styles";
+import { useCart } from "../context/CartContext";
 
 const books = [
   {
@@ -35,11 +36,23 @@ const books = [
     image: "https://via.placeholder.com/150",
     price: "$15.00",
     synopsis:
-      "Una historia de ciencia ficción que explora los límites del universo conocido.Una historia de ciencia ficción que explora los límites del universo conocido. Una historia de ciencia ficción que explora los límites del universo conocido. Una historia de ciencia ficción que explora los límites del universo conocido. Una historia de ciencia ficción que explora los límites del universo conocido. ",
+      "Una historia de ciencia ficción que explora los límites del universo conocido.",
   },
 ];
 
 export default function Books() {
+  const { addToCart, cartItems } = useCart();
+
+  const isInCart = (bookId: number) => {
+    return cartItems.some((item) => item.id === bookId);
+  };
+
+  const handleAddToCart = (book: (typeof books)[0]) => {
+    if (!isInCart(book.id)) {
+      addToCart(book);
+    }
+  };
+
   return (
     <BooksWrapper>
       {books.map((book) => (
@@ -50,7 +63,12 @@ export default function Books() {
           <p>{book.price}</p>
           <BookDetails>
             <BookSynopsis>{book.synopsis}</BookSynopsis>
-            <BuyButton>Comprar</BuyButton>
+            <BuyButton
+              onClick={() => handleAddToCart(book)}
+              disabled={isInCart(book.id)}
+            >
+              {isInCart(book.id) ? "En el carrito" : "Comprar"}
+            </BuyButton>
           </BookDetails>
         </BookCard>
       ))}

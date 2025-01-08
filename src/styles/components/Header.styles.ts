@@ -4,18 +4,17 @@ export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(197, 187, 187, 0);
   color: white;
-  height: 60px;
+  padding: 20px;
   width: 100%;
-
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1001;
 
   @media (max-width: 768px) {
-    height: 50px;
-    padding: 0 10px;
+    padding: 10px;
   }
 `;
 
@@ -41,16 +40,28 @@ export const Title = styled.h1`
   flex: none;
 `;
 
-export const BookIcon = styled.img`
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
+export const BookIconWrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 30px;
 
-  &:hover {
-    transform: scale(1.1);
-    transition: transform 0.2s, color 0.2s;
+  img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
   }
+`;
+
+export const CartCount = styled.span`
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 50%;
 `;
