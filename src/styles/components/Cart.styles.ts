@@ -1,104 +1,89 @@
-import styled from "styled-components";
+import { styled } from "@mui/material/styles";
+import { Button } from "@mui/material";
 
-export const CartWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 100px;
-  align-items: center;
-  padding: 20px;
-  width: 100%;
-  box-sizing: border-box;
-`;
+export const CartWrapper = styled("div")({
+  padding: "20px",
+  maxWidth: "800px",
+  margin: "100px auto",
+  backgroundColor: "white",
+  borderRadius: "8px",
+  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+});
 
-export const CartTitle = styled.h1`
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-`;
+export const CartItem = styled("div")({
+  display: "flex",
+  padding: "15px",
+  borderBottom: "1px solid #eee",
+  "&:last-child": {
+    borderBottom: "none",
+  },
+});
 
-export const CartItemsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 600px;
-  gap: 20px;
-`;
+export const CartItemImage = styled("img")({
+  width: "100px",
+  height: "150px",
+  objectFit: "cover",
+  marginRight: "20px",
+  borderRadius: "4px",
+});
 
-export const CartItem = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-`;
+export const CartItemDetails = styled("div")({
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+});
 
-export const CartItemImage = styled.img`
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-`;
+export const CartItemTitle = styled("h3")({
+  margin: "0 0 10px 0",
+  fontSize: "1.2rem",
+  fontFamily: "'Playfair Display', serif",
+});
 
-export const CartItemDetails = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-grow: 1;
-  margin-left: 15px;
-`;
+export const CartItemPrice = styled("p")({
+  margin: "0",
+  fontSize: "1.1rem",
+  color: "#333",
+});
 
-export const CartItemTitle = styled.h2`
-  font-size: 1.2rem;
-  color: #333;
-  margin: 0 0 5px 0;
-`;
+export const RemoveButton = styled(Button)({
+  alignSelf: "flex-start",
+  marginTop: "10px",
+  color: "#ff4444",
+  "&:hover": {
+    backgroundColor: "rgba(255, 68, 68, 0.1)",
+  },
+});
 
-export const CartItemPrice = styled.p`
-  font-size: 1rem;
-  color: #555;
-  margin: 0 0 10px 0;
-`;
+export const CartTotal = styled("div")({
+  margin: "20px 0",
+  padding: "20px 0",
+  borderTop: "2px solid #eee",
+  fontSize: "1.4rem",
+  fontWeight: "bold",
+  textAlign: "right",
+  fontFamily: "'Playfair Display', serif",
+});
 
-export const RemoveButton = styled.button`
-  background-color: #ff4d4f;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
+export const CheckoutButton = styled(Button)({
+  display: "block",
+  width: "100%",
+  padding: "15px",
+  backgroundColor: "#333",
+  color: "white",
+  fontSize: "1.1rem",
+  "&:hover": {
+    backgroundColor: "#444",
+  },
+  "&:disabled": {
+    backgroundColor: "#ccc",
+  },
+});
 
-  &:hover {
-    background-color: #e04040;
-  }
-`;
-
-export const CartTotal = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 20px 0;
-  color: #333;
-`;
-
-export const CheckoutButton = styled.button`
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #444;
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-`;
+export const EmptyCartMessage = styled("p")({
+  textAlign: "center",
+  fontSize: "1.2rem",
+  color: "#666",
+  margin: "40px 0",
+  fontFamily: "'Playfair Display', serif",
+});

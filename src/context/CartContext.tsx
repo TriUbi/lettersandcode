@@ -13,6 +13,7 @@ interface CartContextType {
   addToCart: (item: CartItem) => void;
   removeFromCart: (id: number) => void;
   cartCount: number;
+  clearCart: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -26,6 +27,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     setCartItems((prev) => [...prev, item]);
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
   const removeFromCart = (id: number) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
@@ -37,6 +41,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         addToCart,
         removeFromCart,
         cartCount: cartItems.length,
+        clearCart,
       }}
     >
       {children}
