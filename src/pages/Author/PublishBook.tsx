@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import { TextField, Button, Typography, Box, Paper } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+///import { useNavigate } from "react-router-dom";
 
 const PublishWrapper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(3),
@@ -16,7 +16,7 @@ const Form = styled("form")(({ theme }) => ({
 }));
 
 const PublishBook: React.FC = () => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     synopsis: "",
@@ -26,7 +26,7 @@ const PublishBook: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implementar la lógica de publicación del libro
+
     console.log("Datos del libro:", formData);
   };
 

@@ -55,10 +55,10 @@ export const Title = styled("h1")({
     transition: "width 0.3s ease",
   },
   "@media (max-width: 768px)": {
-    fontSize: "1rem",
+    fontSize: "1.5rem",
   },
   "@media (max-width: 480px)": {
-    fontSize: "1.4rem",
+    fontSize: "1.2rem",
     paddingRight: "10px",
   },
 });
@@ -93,8 +93,11 @@ export const CartCount = styled("span")({
   boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
 });
 
-export const AuthButtonsWrapper = styled("div")({
+export const AuthButtonsContainer = styled("div")({
   display: "flex",
   alignItems: "center",
   gap: "1rem",
+  "@media (max-width: 768px)": {
+    display: "none",
+  },
 });

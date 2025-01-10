@@ -6,7 +6,7 @@ export const SidebarWrapper = styled.aside<{ open: boolean }>`
   left: 0;
   width: 250px;
   height: 100%;
-  background: linear-gradient(to bottom, #000, #444); /* Negro a gris */
+  background: linear-gradient(to bottom, #000, #444);
   color: white;
   padding: 20px;
   transform: ${(props) => (props.open ? "translateX(0)" : "translateX(-100%)")};
@@ -23,9 +23,32 @@ export const SidebarWrapper = styled.aside<{ open: boolean }>`
       a {
         color: white;
         text-decoration: none;
+        font-size: 1.1rem;
 
         &:hover {
           text-decoration: underline;
+        }
+      }
+
+      &.auth-buttons {
+        margin-top: 40px;
+        display: none;
+
+        @media (max-width: 768px) {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        button {
+          width: 100%;
+          justify-content: flex-start;
+          padding-left: 0;
+          font-size: 1.1rem;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+          }
         }
       }
     }
@@ -38,7 +61,7 @@ export const Overlay = styled.div<{ open: boolean }>`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5);
   display: ${(props) => (props.open ? "block" : "none")};
   z-index: 999;
 `;

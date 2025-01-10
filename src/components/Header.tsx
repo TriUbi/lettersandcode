@@ -5,6 +5,7 @@ import {
   Title,
   BookIconWrapper,
   CartCount,
+  AuthButtonsContainer,
 } from "../styles/components/Header.styles";
 import Sidebar from "./Sidebar";
 import { useCart } from "../context/CartContext";
@@ -40,39 +41,47 @@ const Header: React.FC = () => {
         <HamburgerButton onClick={toggleSidebar}>☰</HamburgerButton>
         <Title onClick={() => navigate("/")}>Between Letters and Code</Title>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          {user ? (
-            <Button
-              color="inherit"
-              onClick={handleLogout}
-              sx={{ color: "black" }}
-            >
-              Cerrar Sesión
-            </Button>
-          ) : (
-            <>
+          <AuthButtonsContainer>
+            {user ? (
               <Button
                 color="inherit"
-                onClick={() => navigate("/login")}
+                onClick={handleLogout}
                 sx={{ color: "black" }}
               >
-                Iniciar Sesión
+                Cerrar Sesión
               </Button>
-              <Button
-                color="inherit"
-                onClick={() => navigate("/signup")}
-                sx={{ color: "black" }}
-              >
-                Registrarse
-              </Button>
-            </>
-          )}
+            ) : (
+              <>
+                <Button
+                  color="inherit"
+                  onClick={() => navigate("/login")}
+                  sx={{ color: "black" }}
+                >
+                  Iniciar Sesión
+                </Button>
+                <Button
+                  color="inherit"
+                  onClick={() => navigate("/signup")}
+                  sx={{ color: "black" }}
+                >
+                  Registrarse
+                </Button>
+              </>
+            )}
+          </AuthButtonsContainer>
           <BookIconWrapper onClick={() => navigate("/cart")}>
             <img src={BookIcon} alt="Carrito" />
             {cartCount > 0 && <CartCount>{cartCount}</CartCount>}
           </BookIconWrapper>
         </div>
       </HeaderWrapper>
-      <Sidebar open={isSidebarOpen} onClose={toggleSidebar} />
+      <Sidebar
+        open={isSidebarOpen}
+        onClose={toggleSidebar}
+        user={user}
+        handleLogout={handleLogout}
+        navigate={navigate}
+      />
     </>
   );
 };
