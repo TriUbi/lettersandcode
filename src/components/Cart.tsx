@@ -24,8 +24,10 @@ import {
   EmptyCartMessage,
 } from "../styles/components/Cart.styles";
 
+const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_5kA2aH6jD8H71iM8ww";
+
 const Cart: React.FC = () => {
-  const { cartItems, removeFromCart, clearCart } = useCart();
+  const { cartItems, removeFromCart } = useCart();
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
   const [openDialog, setOpenDialog] = useState(false);
@@ -40,9 +42,8 @@ const Cart: React.FC = () => {
       setOpenDialog(true);
       return;
     }
-    // Aquí iría la lógica de checkout para usuarios autenticados
-    clearCart();
-    // Navegar a la página de confirmación o procesamiento de pago
+    // Redirigir al link de pago de Stripe
+    window.location.href = STRIPE_PAYMENT_LINK;
   };
 
   const handleLogin = () => {
